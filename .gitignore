@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+data/*.db
+data/*.db-*
+.venv/
+node_modules/
+
+#konsi file share nai karni hai
+.env
+.DS_Store
+.env
+.DS_Store

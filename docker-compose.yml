@@ -1,0 +1,19 @@
+services:
+  securesum:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data      # database lives here
+    environment:
+      # Set to 1 once you serve the site over HTTPS (adds HSTS header)
+      SECURESUM_HTTPS: "0"
+      # Values are read from your shell or from a ".env" file next to this file (copy .env.example)
+      GOOGLE_CLIENT_ID: "${GOOGLE_CLIENT_ID:-}"
+      SMTP_HOST: "${SMTP_HOST:-}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_USER: "${SMTP_USER:-}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD:-}"
+      SMTP_FROM: "${SMTP_FROM:-}"
+      SMTP_SECURITY: "${SMTP_SECURITY:-starttls}"
+    restart: unless-stopped
